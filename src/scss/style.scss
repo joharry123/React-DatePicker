@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.date-picker {
+  position: relative;
+
+  .date-input {
+    margin: 30px auto;
+    display: flex;
+    height: 60px;
+    width: 300px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    color: #313131;
+    font-size: 28px;
+    cursor: pointer;
+    // !
+    &:hover {
+      background-color: #f3f3f3;
+    }
+  }
+
+  .calendar {
+    display: none;
+    position: absolute;
+    width: 700px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    outline: 2px solid lightgrey;
+    border-radius: 3%;
+    margin: auto;
+    overflow: hidden;
+
+    &.active {
+      display: block;
+    }
+
+    .month {
+      display: flex;
+      // !
+      justify-content: space-between;
+      //간격을 맞춰쥑 위해 사용한다.
+      align-items: center;
+      border-bottom: 2px solid #eee;
+      font-weight: bold;
+
+      .arrows {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #313131;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: #f3f3f3;
+        }
+
+        &:active {
+          background-color: #00a2ff;
+        }
+      }
+    }
+
+    .days {
+      display: flex;
+
+      .day {
+        display: flex;
+        width: 100px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid #eee;
+
+        &:first-child {
+          color: red;
+        }
+
+        &:last-child {
+          color: blue;
+        }
+      }
+    }
+
+    .dates {
+      // !
+      display: grid;
+      //display : grid : 2차원의 배열시스템 
+      grid-template-columns: repeat(7, 1fr);
+      //1fr의 크기인 7개(repeat)의 열을 둔다는 뜻 
+      //gird-tempalte-rows 행 
+      //fr : fraction - 조각의 약자 
+      //row의 갯수는 동적이기 때문에 따로 선언하지 않는다.
+
+      .date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #313131;
+        height: 100px;
+        width: 100px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: #f3f3f3;
+        }
+
+        &.today {
+          background-color: 
+          #c1e4ff;
+          opacity:0.7;
+          font-weight: bold;
+          font: black;
+          
+        }
+
+        &.selected {
+          border:3px solid #c1e4ff;
+
+        }
+        // // ! js로 동적으로 구현할 예정
+        // &:nth-child(7n+2) {
+        //   color: red;
+        // }
+        // // ! js로 동적으로 구현할 예정
+        // &:nth-child(7n+1) {
+        //   color: blue;
+        // }
+        // // ! js로 동적으로 구현할 예정
+        // &:first-child {
+        //   grid-column-start: 7;
+        // }
+      }
+    }
+  }
+}
